@@ -14,7 +14,7 @@
  
     
   <ion-list>
-       <ion-item *ngFor="let item of items">
+       <ion-item *ngFor="let item of items" (click) = "itemTapped(item)">
 
           <ion-thumbnail item-start><img src="http://d1dcu4sbskithe.cloudfront.net/{{ item.image }}" onerror="this.src='http://d1dcu4sbskithe.cloudfront.net/media/default.png';" /></ion-thumbnail>
            <h2>{{ item.label }}</h2>

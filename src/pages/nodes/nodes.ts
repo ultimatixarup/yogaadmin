@@ -56,8 +56,17 @@ cachedItems:Array<{label: string,name: string,description: string, data: string,
                                          for(var i = 0; i < resp.length; i++) {
                                          
                                         
+            let type = resp[i][4];
+            let image = "";
+            if(type == 'disease'){
             
-             var element= { name: resp[i][1],label:resp[i][2], description: resp[i][3], data: resp[i][2], image: 'media/'+resp[i]  [1].split('.')[0]+'.jpg', type: resp[i][4],easyvid:resp[i][6],icon:resp[i][1].split('.')[0]+'.jpg'};
+                image = 'media/'+resp[i]  [1].split('.')[0]+'.jpg';
+            
+            } else {
+                image = 'media/'+ resp[i][6].replace('.3gp','.jpg');
+            
+            }
+             var element= { name: resp[i][1],label:resp[i][2], description: resp[i][3], data: resp[i][6], image: image, type: resp[i][4],easyvid:resp[i][6],icon:resp[i][1].split('.')[0]+'.jpg'};
             
              console.log(element);
                     this.items.push(element);
@@ -109,6 +118,11 @@ err=>{
         );
       })
     }
+  }
+  
+  
+  itemTapped(item){
+    console.log(item);
   }
 
 }

@@ -16,6 +16,8 @@ export class AppsettingsComponent {
 
  public static API_ENDPOINT='https://getwellbyoga.org/yoga';
  public static LIST_NODE= AppsettingsComponent.API_ENDPOINT + '/deplist.php';
+ public static GET_TYPES= AppsettingsComponent.API_ENDPOINT + '/gettypes.php';
+ 
  
   constructor() {
     console.log('Hello AppsettingsComponent Component');

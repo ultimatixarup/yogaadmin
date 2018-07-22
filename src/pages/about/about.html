@@ -7,5 +7,9 @@
 </ion-header>
 
 <ion-content padding>
+    ion autocomplete
+    <ion-auto-complete [dataProvider]="completeTestService" [(ngModel)]="data"></ion-auto-complete>
+    
+   <button (click)="show()" ion-button>Default</button>
 
 </ion-content>

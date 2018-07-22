@@ -10,7 +10,9 @@ import { TabsPage } from '../pages/tabs/tabs';
 
 import { NodesPage } from '../pages/nodes/nodes';
 
+import { AutoCompleteModule } from 'ionic2-auto-complete';
 
+ 
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -20,6 +22,8 @@ import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppsettingsComponent } from '../components/appsettings/appsettings';
+
+import { CompleteTestService } from '../services/autocompleteservice';
 
 @NgModule({
   declarations: [
@@ -35,6 +39,7 @@ import { AppsettingsComponent } from '../components/appsettings/appsettings';
     BrowserModule,
     HttpModule,
     HttpClientModule,
+    AutoCompleteModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -48,6 +53,7 @@ import { AppsettingsComponent } from '../components/appsettings/appsettings';
   ],
   providers: [
     StatusBar,
+    CompleteTestService,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
