@@ -20,6 +20,7 @@ import { AppsettingsComponent } from '../../components/appsettings/appsettings'
 export class NodesPage {
 
 nodeList:any;
+items:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public http:HttpClient,public loadingCtrl:LoadingController) {
   
@@ -42,17 +43,20 @@ nodeList:any;
   loader.present();
   
   var nodeListUrl = AppsettingsComponent.LIST_NODE;
-  
+   this.items = [];
 
-  alert(nodeListUrl);
+  
   
   
       this.http.get(nodeListUrl).subscribe(resp => {
                                          // alert(resp['_body']);  
-                                         console.log(resp);                                                                          
-            this.nodeList = resp;
-            console.log(this.nodeList);
+                                         console.log(resp); 
+                                         
+                                         for(var i = 0; i < resp.length; i++) {
             
+             let element= { label: resp[i][0],name: resp[i][5],description: resp[i][1], data: resp[i][2], image: resp[i][3], type: resp[i][4]};
+                    this.items.push(element);
+                    }
             
            
             loader.dismiss();
